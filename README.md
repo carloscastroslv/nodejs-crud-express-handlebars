@@ -41,7 +41,14 @@ https://youtu.be/7udHlHLHUDw?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
 # Obs. apartir daqui foi apagado tudo que tinha no arquivo app.js e começado do zero usando sequelize. Criei um
 # backup do app.js anterior para não perder fonte de pesquisa.
 
+# Vamos inserir dados em uma tabela usando models no sequelize
+https://youtu.be/7udHlHLHUDw?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu&t=762
 
+# Usando o handlebars para renderizar paginas html
+https://youtu.be/kK98Qr03qNo?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
+
+# Criando formulário no node para cadastrar algo
+https://youtu.be/LAK1XptdZX8?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
 
 
 

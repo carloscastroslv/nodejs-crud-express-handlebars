@@ -1,48 +1,28 @@
-const Sequelize = require('sequelize');
+const express = require('express');
+const app = express();
+const handlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
 
-const sequelize = new Sequelize('tarefas','root','',{
-    host: 'localhost',
-    dialect: 'mysql'
+app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+// Configurar o middleware body-parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+app.get('/pagamento', function(req, res) {
+    res.render('pagamento');
+});
+app.get('/cad-pagamento', function(req, res) {
+    res.render('cad-pagamento');
 });
 
-sequelize.authenticate().then(function(){
-    console.log('Conexão realizada com sucesso!');
-}).catch(function(err) {
-    console.log('Erro ao realizar a conexão com DB: ' + err);
+app.post('/add-pagamento', function(req, res) {
+    res.send(
+        "<h1>Resultado: </h1>" +
+        "<b>Nome: </b>" + req.body.nome + "<br><b>Valor: </b>" + req.body.valor + "<br>");
 });
 
-const Products = sequelize.define('Product', {
-  // Model attributes are defined here
-  descricao: {
-    type: Sequelize.STRING,    
-  },
-  quant: {
-    type: Sequelize.INTEGER,    
-  },
-  valor: {
-    type: Sequelize.DOUBLE,
-  }
-});
 
-const Atendimentos = sequelize.define('Atendimento', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    data: {
-        type: Sequelize.DATE,
-    },
-    servico: {
-        type: Sequelize.STRING,
-    },
-    cliente: {
-        type: Sequelize.STRING,
-    },
-    status: {
-        type: Sequelize.ENUM('ativo', 'inativo', 'pendente'),
-        defaultValue: 'ativo' // Define 'ativo' como valor padrão
-    }
-});
-
-// Atendimentos.sync({force: true});
+app.listen(8080);
