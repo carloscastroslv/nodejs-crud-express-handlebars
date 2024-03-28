@@ -35,6 +35,13 @@ https://youtu.be/5JnPd_YckQw?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu&t=1790
 # Criando query para selecionar dados da tabela
 https://youtu.be/5JnPd_YckQw?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu&t=1883
 
+# Usando o Sequelize 
+https://youtu.be/7udHlHLHUDw?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
+
+# Obs. apartir daqui foi apagado tudo que tinha no arquivo app.js e começado do zero usando sequelize. Criei um
+# backup do app.js anterior para não perder fonte de pesquisa.
+
+
 
 
 

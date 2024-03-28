@@ -1,47 +1,48 @@
-const express = require('express')
-const app = express();
+const Sequelize = require('sequelize');
 
-const mysql = require('mysql');
+const sequelize = new Sequelize('tarefas','root','',{
+    host: 'localhost',
+    dialect: 'mysql'
+});
 
-const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'tarefas'
-  });
+sequelize.authenticate().then(function(){
+    console.log('Conexão realizada com sucesso!');
+}).catch(function(err) {
+    console.log('Erro ao realizar a conexão com DB: ' + err);
+});
 
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
+const Products = sequelize.define('Product', {
+  // Model attributes are defined here
+  descricao: {
+    type: Sequelize.STRING,    
+  },
+  quant: {
+    type: Sequelize.INTEGER,    
+  },
+  valor: {
+    type: Sequelize.DOUBLE,
+  }
+});
+
+const Atendimentos = sequelize.define('Atendimento', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    data: {
+        type: Sequelize.DATE,
+    },
+    servico: {
+        type: Sequelize.STRING,
+    },
+    cliente: {
+        type: Sequelize.STRING,
+    },
+    status: {
+        type: Sequelize.ENUM('ativo', 'inativo', 'pendente'),
+        defaultValue: 'ativo' // Define 'ativo' como valor padrão
     }
-   
-    console.log('connected as id ' + connection.threadId);
-  });
+});
 
-  connection.query('SELECT * FROM atendimentos', function(err, rows, fields){
-    if(!err){
-        console.log('Resultado: ', rows);
-    } else {
-        console.log('Erro ao realizar a consulta');
-    }
-  })
-
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + "/src/index.html");
-})
-
-app.get('/sobre-empresa', function(req, res) {
-    res.sendFile(__dirname + "/src/sobre-empresa.html");
-})
-
-app.get('/contato', function(req, res) {
-    res.sendFile(__dirname + "/src/contato.html");
-})
-app.get('/blog', function(req, res) {
-    res.sendFile(__dirname + "/src/blog.html");
-})
-
-app.listen(3000, () => {
-    console.log("Servidor rodando na porta 3000");
-})
+// Atendimentos.sync({force: true});
