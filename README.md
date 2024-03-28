@@ -50,6 +50,9 @@ https://youtu.be/kK98Qr03qNo?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
 # Criando formulário no node para cadastrar algo
 https://youtu.be/LAK1XptdZX8?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
 
+# Como listar os nossos pagamentos
+https://youtu.be/TavTaLemiQo?list=PLmY5AEiqDWwBHJ3i_8MDSszXXRTcFdkSu
+
 
 
 
